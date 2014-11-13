@@ -26,7 +26,7 @@
                  [org.clojars.magomimmo/shoreleave-remote-ring "0.3.1-SNAPSHOT"
                   :exclude [org.clojars.magomimmo/shoreleave-browser]]
                  [org.clojars.magomimmo/shoreleave-browser "0.3.2-SNAPSHOT"]
-                 [org.clojars.stepugnetti/valip "0.4.0"]]
+                 [org.clojars.stepugnetti/valip "0.4.0-SNAPSHOT"]]
 
   :plugins [[lein-cljsbuild "1.0.3"]
             [lein-ring "0.8.8"]
@@ -46,8 +46,7 @@
   :ring {:handler modern-cljs.remotes/app}
 
   ;; cljsbuild tasks configuration
-  :cljsbuild {;:crossovers [modern-cljs.login.validators]
-              :builds
+  :cljsbuild {:builds
               [{;; build id
                 :id "dev"
                 :source-paths ["src/brepl" "src/cljs"]
