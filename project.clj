@@ -16,16 +16,19 @@
   ;; clojure source code path
   :source-paths ["src/clj" "src/cljs" "src/brepl"]
 
-  :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2069"]
-                 [compojure "1.1.6"]
-                 [hiccups "0.2.0"]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2371"]
+                 [compojure "1.2.1"]
+                 [hiccups "0.3.0"]
                  [domina "1.0.3-SNAPSHOT"]
-                 [org.clojars.magomimmo/shoreleave-remote-ring "0.3.1-SNAPSHOT"]
-                 [org.clojars.magomimmo/shoreleave-remote "0.3.1-SNAPSHOT"]
+                 [org.clojars.magomimmo/shoreleave-remote "0.3.1-SNAPSHOT"
+                  :exclude [org.clojars.magomimmo/shoreleave-browser]]
+                 [org.clojars.magomimmo/shoreleave-remote-ring "0.3.1-SNAPSHOT"
+                  :exclude [org.clojars.magomimmo/shoreleave-browser]]
+                 [org.clojars.magomimmo/shoreleave-browser "0.3.2-SNAPSHOT"]
                  [org.clojars.stepugnetti/valip "0.4.0"]]
 
-  :plugins [[lein-cljsbuild "1.0.0"]
+  :plugins [[lein-cljsbuild "1.0.3"]
             [lein-ring "0.8.8"]]
 
   ;; enable cljsbuild tasks support
