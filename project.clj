@@ -29,7 +29,15 @@
                  [org.clojars.stepugnetti/valip "0.4.0"]]
 
   :plugins [[lein-cljsbuild "1.0.3"]
-            [lein-ring "0.8.8"]]
+            [lein-ring "0.8.8"]
+            [com.keminglabs/cljx "0.4.0"]]
+
+  :cljx {:builds [{:source-paths ["src/cljx"]
+                   :output-path "src/clj"
+                   :rules :clj}
+                  {:source-paths ["src/cljx"]
+                   :output-path "src/cljs"
+                   :rules :cljs}]}
 
   ;; enable cljsbuild tasks support
   ;; :hooks [leiningen.cljsbuild]
@@ -38,7 +46,7 @@
   :ring {:handler modern-cljs.remotes/app}
 
   ;; cljsbuild tasks configuration
-  :cljsbuild {:crossovers [modern-cljs.login.validators]
+  :cljsbuild {;:crossovers [modern-cljs.login.validators]
               :builds
               [{;; build id
                 :id "dev"
