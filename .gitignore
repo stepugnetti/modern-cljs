@@ -15,3 +15,6 @@ pom.xml
 .lein-cljsbuild*
 .lein-repl*
 .crossover-cljs
+/src/cljs/modern_cljs/login
+.lein-env
+
