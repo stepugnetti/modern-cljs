@@ -22,11 +22,12 @@
                  [hiccups "0.3.0"]
                  [domina "1.0.3-SNAPSHOT"]
                  [org.clojars.magomimmo/shoreleave-remote "0.3.1-SNAPSHOT"
-                  :exclude [org.clojars.magomimmo/shoreleave-browser]]
+                  :exclusions [org.clojars.magomimmo/shoreleave-browser]]
                  [org.clojars.magomimmo/shoreleave-remote-ring "0.3.1-SNAPSHOT"
-                  :exclude [org.clojars.magomimmo/shoreleave-browser]]
+                  :exclusions [org.clojars.magomimmo/shoreleave-browser]]
                  [org.clojars.magomimmo/shoreleave-browser "0.3.2-SNAPSHOT"]
-                 [org.clojars.stepugnetti/valip "0.4.0-SNAPSHOT"]
+                 [org.clojars.stepugnetti/valip "0.4.0-SNAPSHOT"
+                  :exclusions [com.keminglabs/cljx]]
                  [enlive "1.1.5"]]
 
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]
@@ -41,10 +42,13 @@
                    :rules :cljs}]}
 
   ;; enable cljsbuild tasks support
-  :hooks [leiningen.cljsbuild]
+  :hooks [leiningen.cljsbuild
+          cljx.hooks]
 
   ;; ring tasks configuration
   :ring {:handler modern-cljs.core/app}
+
+  :test-paths ["test/clj"]
 
   ;; cljsbuild tasks configuration
   :cljsbuild {:builds
