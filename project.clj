@@ -14,7 +14,7 @@
   :min-lein-version "2.1.2"
 
   ;; clojure source code path
-  :source-paths ["src/clj" "src/cljs" "src/brepl"]
+  :source-paths ["src/clj" "src/cljs" "src/brepl" "target/src/clj" "target/src/cljs"]
 
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2371"]
@@ -36,10 +36,10 @@
             [com.cemerick/clojurescript.test "0.3.1"]]
 
   :cljx {:builds [{:source-paths ["src/cljx"]
-                   :output-path "src/clj"
+                   :output-path "target/src/clj"
                    :rules :clj}
                   {:source-paths ["src/cljx"]
-                   :output-path "src/cljs"
+                   :output-path "target/src/cljs"
                    :rules :cljs}
                   {:source-paths ["test/cljx"] ;; cljx source dir
                    :output-path "target/test/clj" ;; clj output
@@ -49,10 +49,9 @@
                    :output-path "target/test/cljs" ;; cljs output
                    :rules :cljs}]}
 
+
   ;; enable cljsbuild tasks support
-  :hooks [leiningen.cljsbuild
-;;           cljx.hooks
-          ]
+  :hooks [leiningen.cljsbuild]
 
   ;; ring tasks configuration
   :ring {:handler modern-cljs.core/app}
@@ -64,7 +63,6 @@
               {:ws-unit-tests
                {;; CLJS source code and unit test paths
                 :source-paths ["src/brepl" "src/cljs" "target/test/cljs"]
-
                 ;; Google Closure Compiler options
                 :compiler {;; the name of emitted JS script file for unit testing
                            :output-to "test/js/testable_dbg.js"
@@ -77,7 +75,6 @@
                :simple-unit-tests
                {;; same path as above
                 :source-paths ["src/brepl" "src/cljs" "target/test/cljs"]
-
                 :compiler {;; different JS output name for unit testing
                            :output-to "test/js/testable_pre.js"
 
@@ -90,7 +87,6 @@
                :advanced-unit-tests
                {;; same path as above
                 :source-paths ["src/cljs" "target/test/cljs"]
-
                 :compiler {;; different JS output name for unit testing
                            :output-to "test/js/testable.js"
 
@@ -101,7 +97,6 @@
                            :pretty-print false}}
                :dev
                {:source-paths ["src/brepl" "src/cljs"]
-
                 ;; Google Closure Compiler options
                 :compiler {;; the name of emitted JS script file
                            :output-to "resources/public/js/modern_dbg.js"
@@ -112,7 +107,6 @@
                            :pretty-print true}}
                :pre-prod
                {:source-paths ["src/brepl" "src/cljs"]
-
                 :compiler {;; different JS output name
                            :output-to "resources/public/js/modern_pre.js"
 
