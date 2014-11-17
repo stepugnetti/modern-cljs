@@ -17,4 +17,3 @@ pom.xml
 .crossover-cljs
 /src/cljs/modern_cljs/login
 .lein-env
-
