@@ -17,5 +17,3 @@ pom.xml
 .crossover-cljs
 /src/cljs/modern_cljs/login
 .lein-env
-/src/clj/modern_cljs/shopping/
-/src/cljs/modern_cljs/shopping/
